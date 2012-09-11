@@ -1,0 +1,27 @@
+hi Normal		guifg=cyan			guibg=black
+hi NonText		guifg=darkgrey
+hi comment		guifg=green
+hi constant		guifg=cyan								gui=bold
+hi identifier 	guifg=cyan		 						gui=NONE
+hi cidentifier 	guifg=cyan 								gui=NONE
+hi statement	guifg=lightblue							gui=NONE
+hi cstatement	guifg=yellow							gui=NONE
+hi preproc		guifg=Pink2
+hi type			guifg=seagreen 							gui=bold
+hi special		guifg=yellow
+hi ErrorMsg		guifg=Black			guibg=Red 			
+hi WarningMsg	guifg=Black			guibg=Green 		
+hi Error							guibg=Red
+hi Todo			guifg=Blue 			guibg=Yellow
+hi Cursor 							guibg=LightGreen
+hi Search 							guibg=blue
+hi IncSearch 						guibg=darkgreen
+hi LineNr 		guifg=darkgrey
+hi title		guifg=darkgrey
+hi StatusLineNC	gui=NONE 			guifg=lightblue guibg=darkblue
+hi StatusLine	gui=bold		 	guifg=cyan		guibg=blue
+hi label 		guifg=gold2
+hi operator 	guifg=orange
+hi clear Visual
+hi Visual term=reverse cterm=reverse gui=reverse
+hi cIf0 		guifg=darkgrey
