@@ -1,0 +1,115 @@
+# Peter Debacker
+#
+# ~/.tmux.conf - tmux terminal multiplexer config
+#
+# Based on Thayer Williams version:
+#   Thayer Williams (http://cinderwick.ca)
+#   "Feel free to do whatever you like with it."
+
+# We want pretty colors
+#set -g default-terminal "screen-256color"
+
+# set prefix key to ctrl+a until I have time to adapt
+unbind C-b
+set -g prefix C-a
+
+# send the prefix to client inside window (ala nested sessions)
+bind-key a send-prefix
+
+# reload config without killing server
+bind R source-file ~/.tmux/conf \; display-message "  Config reloaded..".
+
+# Load vim settings
+source-file ~/.tmux/vim-keys.conf
+
+# Make Ctrl-PgUp and Ctrl-PgDn work in vim
+#setw -g xterm-keys on
+
+# toggle last window like screen
+bind-key C-a last-window
+
+# confirm before killing a window or a session
+bind-key K confirm kill-session
+
+# toggle statusbar
+bind-key b set-option status
+
+# open a man page in new window
+bind / command-prompt "split-window 'exec man %%'"
+
+# quick view of processes
+bind '~' split-window "exec htop"
+
+# scrollback buffer n lines
+set -g history-limit 8000
+
+# listen for activity on all windows
+set -g bell-action any
+set -g visual-bell off
+
+# on-screen time for display-panes in ms
+set -g display-panes-time 2000
+
+# start window indexing at one instead of zero
+set -g base-index 1
+
+
+# wm window title string (uses statusbar variables)
+#set -g set-titles-string "tmux.#I.#W"
+
+# Activity and silence monitoring
+set-window-option -g monitor-activity on
+#set-window-option -g monitor-silence  60
+
+# avoid a nasty delay when pressing Esc in vim...
+set-option -g escape-time 0
+
+# session initialization
+#new -s mysession vim
+#neww -t 2
+#neww -d -t 3
+#neww -d -t 5
+#neww -d -t 6
+#selectw -t 1
+
+## set window notifications
+set-option -g visual-activity on
+set-option -g visual-content on
+set-window-option -g monitor-activity on
+set-window-option -g automatic-rename off
+
+## Load color scheme
+source-file ~/.tmux/colors/tmuxcolors-256.conf
+
+## set status bar content
+set-option -g status-utf8 on
+
+#set-option -g status-left '⣿'
+#set-option -g status-right '⡇ #[bold]❐ #S:#I#[default] ⡇ #[bold]#(whoami) ● #H#[default] '
+#set-option -g status-right '⡇ ❐ #S ⡇ ❖ #(rvm tools identifier) ⡇ #(whoami) ● #H '
+set-option -g status-left ' #[bold]▶ #S#[default] ⣿'
+#set-option -g status-right '⢸⡇ %Y-%m-%d %H:%M ⢸⡇ #[bold]#(whoami) ● #H#[default] '
+set-option -g status-right '⣿ %H:%M ⣿ #[bold]#(whoami) ● #H#[default] '
+
+set-option -g status-right-length 60
+set-option -g status-left-length 60
+
+set -g status-justify centre
+
+## highlight active window
+set-window-option -g window-status-current-format ' #I #W '
+
+## tmux window titling for X
+set-option -g set-titles on
+set-option -g set-titles-string '[#I] #W'
+set-window-option -g automatic-rename on
+set-window-option -g window-status-format ' #I #W '
+set-window-option -g window-status-attr bold
+
+## enable mouse
+set-window-option -g mode-keys vi
+set-window-option -g mode-mouse on
+set-option -g mouse-resize-pane on
+set-option -g mouse-select-window on
+set-option -g mouse-select-pane on
+set-option -g status-keys vi
