@@ -1,0 +1,10 @@
+#!/bin/bash
+
+RUNON=${1}
+shift
+if [[ $RUNON != $HOST ]] && [[ $RUNON != "localhost" ]]
+then
+  ssh -qt $RUNON "$@"
+else
+  eval $@
+fi
