@@ -3,6 +3,6 @@
 # Lists all tmux sessions on the typical hosts
 
 foreach host ( desktop mammut01 mammut02 mammut03 )
-  echo "$host : "
-  runon $host "tmux list-sessions" | grep -iv "connection" | awk '{print "  "$0}'
+  #echo "$host : "
+  runon $host "tmux list-sessions" | grep -iv "connection" | awk -v h=$host '{print "  "h":"$0}'
 end

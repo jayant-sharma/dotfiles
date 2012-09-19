@@ -3,5 +3,6 @@
 set h=`echo $1 | cut -d ':' -f 1`
 set s=`echo $1 | cut -d ':' -f 2`
 
+echo "Starting session $s on $h..."
 runon $h "tmux attach-session -t $s"
 
