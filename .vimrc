@@ -161,7 +161,7 @@ autocmd BufLeave *.mk set et
 " Set the colors for vim on "xterm"
   if has("gui_running") ||  &term=="xterm-color"
     colorscheme solarized
-    set guifont=Deja\ Vu\ Sans\ Mono\ Book\ 9
+    set guifont=Deja\ Vu\ Sans\ Mono\ 9
   else
     colorscheme solarized
   endif
