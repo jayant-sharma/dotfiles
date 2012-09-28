@@ -271,3 +271,8 @@ au BufNewFile,BufRead *.scs                      setf spectre
     highlight WhitespaceEOL ctermbg=darkred guibg=darkred
     match WhitespaceEOL /\s\+\%#\@!$/
   endif
+
+" Filetype detection
+filetype on
+filetype plugin on
+filetype indent on
