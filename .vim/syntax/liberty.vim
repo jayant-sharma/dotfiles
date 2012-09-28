@@ -63,6 +63,13 @@ syn keyword     libertyGroup       device_layer poly_layer routing_layer cont_la
 
 " Cell Group and its attributes and subgroups
 "============================================
+syn keyword     libertyGroup       cell pin timing internal_power leakage_power pg_pin ff
+syn keyword     libertyGroup       rise_constraint fall_constraint rise_power fall_power
+syn keyword     libertyGroup       rise_transition fall_transition cell_rise cell_fall
+syn keyword     libertySimpleAttr  when related_pin related_pg_pin timing_sense timing_type sdf_cond
+syn keyword     libertySimpleAttr  direction related_ground_pin related_power_pin capacitance
+syn keyword     libertySimpleAttr  rise_capacitance fall_capacitance value area cell_footprint
+syn keyword     libertyComplexAttr values
 " TODO
 
 " Misc
