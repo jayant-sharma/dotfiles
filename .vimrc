@@ -153,9 +153,9 @@ au BufWritePre *.mk      silent! exec 'retab'
 au BufWritePre ?akefile* silent! exec 'retab'
 
 " Turn hard tabs on for Makefiles only
-autocmd BufEnter ?akefile* set et!
+autocmd BufNewFile,BufRead,BufEnter ?akefile* set et!
 autocmd BufLeave ?akefile* set et
-autocmd BufEnter *.mk set et!
+autocmd BufNewFile,BufRead,BufEnter *.mk set et!
 autocmd BufLeave *.mk set et
 "
 " Set the colors for vim on "xterm"
