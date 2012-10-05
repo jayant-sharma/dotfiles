@@ -250,6 +250,14 @@ let g:Powerline_theme="default"
 let g:Powerline_colorscheme="skwp"
 let g:Powerline_symbols = 'unicode'
 
+"NERDtree setup
+let NERDChristmasTree=1
+let NERDTreeHighlightCursorline=1
+let NERDTreeMouseMode=1
+let NERDTreeShowHidden=1
+
+
+
 " Filetype detection
 filetype on
 filetype plugin on
