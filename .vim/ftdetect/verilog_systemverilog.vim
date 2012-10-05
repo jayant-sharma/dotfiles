@@ -12,5 +12,3 @@ endif
 
 au BufRead,BufNewFile *.inc,*.tc,*.v,*.vh,*.sv,*.svh		set filetype=verilog_systemverilog
 
-" Behaves just like Verilog
-runtime! ftplugin/verilog.vim

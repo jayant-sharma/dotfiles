@@ -152,12 +152,6 @@ au BufWritePre *.csh     silent! exec 'retab'
 au BufWritePre *.mk      silent! exec 'retab'
 au BufWritePre ?akefile* silent! exec 'retab'
 
-" Turn hard tabs on for Makefiles only
-autocmd BufNewFile,BufRead,BufEnter ?akefile* set et!
-autocmd BufLeave ?akefile* set et
-autocmd BufNewFile,BufRead,BufEnter *.mk set et!
-autocmd BufLeave *.mk set et
-"
 " Set the colors for vim on "xterm"
   if has("gui_running") ||  &term=="xterm-color"
     colorscheme solarized
@@ -235,29 +229,6 @@ cmap <C-V>127 <C-H>
 imap <Esc>[3~ <C-H>
 imap        <C-H>
 
-" ===================================================================
-" python support
-" ===================================================================
-" don't highlight exceptions and builtins. I love to override them in
-" local scopes and it sucks ass if it's highlighted then. And for
-" exceptions I  don't really want to have different colors for my own
-" exceptions ;-)
-autocmd FileType python setlocal expandtab shiftwidth=2 tabstop=2 softtabstop=2
-let python_highlight_all=1
-let python_highlight_exceptions=0
-let python_highlight_builtins=0
-
-" ===================================================================
-" C/C++ support
-" ===================================================================
-autocmd FileType C setlocal expandtab shiftwidth=2 tabstop=2 softtabstop=2 cindent
-
-" ===================================================================
-" SystemVerilog: use verilog highlghting
-" ===================================================================
-" FIXME: not the place for this?
-au BufNewFile,BufRead *.sv                       setf verilog
-au BufNewFile,BufRead *.scs                      setf spectre
 
 " ===================================================================
 " AutoCommands
