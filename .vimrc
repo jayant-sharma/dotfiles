@@ -157,6 +157,7 @@ au BufWritePre ?akefile* silent! exec 'retab'
   if has("gui_running") ||  &term=="xterm-color"
     colorscheme solarized
     set guifont=Deja\ Vu\ Sans\ Mono\ 9
+    "set guifont=Deja\ Vu\ Sans\ Mono\ For\ Powerline\ 9
   else
     colorscheme solarized
   endif
@@ -243,6 +244,11 @@ imap        <C-H>
     highlight WhitespaceEOL ctermbg=darkred guibg=darkred
     match WhitespaceEOL /\s\+\%#\@!$/
   endif
+
+" Powerline plugin settings
+let g:Powerline_theme="default"
+let g:Powerline_colorscheme="skwp"
+let g:Powerline_symbols = 'unicode'
 
 " Filetype detection
 filetype on
