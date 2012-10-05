@@ -8,6 +8,7 @@
 " Use pathogen for plugins
 runtime bundle/vim-pathogen/autoload/pathogen.vim
 call pathogen#infect()
+call pathogen#helptags()
 
 " use tags file in . or if not present in the closest parent dir
 set   tags=tags;/
