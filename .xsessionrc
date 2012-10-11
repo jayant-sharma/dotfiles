@@ -1,0 +1,3 @@
+# Load up my custom color scheme
+xrdb -merge ~/.Xresources
+
