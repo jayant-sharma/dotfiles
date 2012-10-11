@@ -256,7 +256,13 @@ let NERDTreeHighlightCursorline=1
 let NERDTreeMouseMode=1
 let NERDTreeShowHidden=1
 
+" Use the mouse as in gvim
+" (Mostly just used for window resizing, maybe need to
+" finetune this to not be all)
+set mouse=a
 
+" Syntax on
+syntax on
 
 " Filetype detection
 filetype on
