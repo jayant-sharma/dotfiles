@@ -68,7 +68,8 @@ if ($?_complete) then
 
     complete ywho   n/*/\$hosts/    # argument from list in $hosts
     complete rsh    p/1/\$hosts/ c/-/"(l n)"/   n/-l/u/ N/-l/c/ n/-/c/ p/2/c/ p/*/f/
-    complete ssh    p/1/\$hosts/ c/-/"(l n)"/   n/-l/u/ N/-l/c/ n/-/c/ p/2/c/ p/*/f/
+    #complete ssh    p/1/\$hosts/ c/-/"(l n)"/   n/-l/u/ N/-l/c/ n/-/c/ p/2/c/ p/*/f/
+    complete ssh    c/*@/\$hosts/ p/1/u/@/ n/*@*/c/
     complete xrsh   p/1/\$hosts/ c/-/"(l 8 e)"/ n/-l/u/ N/-l/c/ n/-/c/ p/2/c/ p/*/f/
     complete rlogin     p/1/\$hosts/ c/-/"(l 8 e)"/ n/-l/u/
     complete telnet     p/1/\$hosts/ p/2/x:'<port>'/ n/*/n/
