@@ -16,6 +16,8 @@ set   tags=tags;/
 " smartindent is smarter indent
 set   smartindent
 
+set pastetoggle=<F10>
+
 " autowrite: "on" saves a lot of trouble
 "set   autowrite
 
