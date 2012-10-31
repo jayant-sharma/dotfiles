@@ -258,7 +258,19 @@ let NERDTreeShowHidden=1
 
 " Use the mouse as in gvim, I like to use it for
 " window resizing.
-set mouse=a
+if has('mouse')
+  set mouse=a
+  if !has('gui_running')
+    " for some reason, doing this directly with 'set ttymouse=xterm2'
+    " doesn't work -- 'set ttymouse?' returns xterm2 but the mouse
+    " makes tmux enter copy mode instead of selecting or scrolling
+    " inside Vim -- but luckily, setting it up from within autocmds
+    " works                   
+    autocmd VimEnter * set ttymouse=xterm2
+    autocmd FocusGained * set ttymouse=xterm2
+    autocmd BufEnter * set ttymouse=xterm2
+  endif
+endif
 
 " Syntax on
 syntax on
