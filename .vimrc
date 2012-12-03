@@ -16,7 +16,9 @@ set   tags=tags;/
 " smartindent is smarter indent
 set   smartindent
 
-set pastetoggle=<F10>
+nnoremap <F2> :set invpaste paste?<CR>
+set pastetoggle=<F2>
+set showmode
 
 " autowrite: "on" saves a lot of trouble
 "set   autowrite
