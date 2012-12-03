@@ -9,6 +9,12 @@
 # We want pretty colors
 #set -g default-terminal "screen-256color"
 
+# When a smaller terminal connects to a tmux client, it shrinks to fit it.
+# The clients attached with bigger displays see this constrained view.
+# aggressive-resize makes it such that the window is only resized if 
+# the smaller client is actively looking at it.
+setw -g aggressive-resize on
+
 # set prefix key to ctrl+a until I have time to adapt
 unbind C-b
 set -g prefix C-a
