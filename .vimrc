@@ -58,8 +58,8 @@ set formatoptions=cr
 set helpheight=15
 
 
-" hidden:
-"set   hidden
+" hidden: Closed buffers are not abandoned but hidden
+set   hidden
 
 " hlsearch :  highlight search - show the current search pattern
 " This is a nice feature sometimes - but it sure can get in the
@@ -275,6 +275,11 @@ if has('mouse')
     autocmd BufEnter * set ttymouse=xterm2
   endif
 endif
+
+" Check if a file changed behind are back
+autocmd BufWinEnter * checktime
+autocmd FocusGained * checktime
+autocmd CursorHold  * checktime
 
 " Syntax on
 syntax on
