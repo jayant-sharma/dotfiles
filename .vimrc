@@ -276,6 +276,21 @@ if has('mouse')
   endif
 endif
 
+" Restore the cursor to its last known position
+" when opening a file. Depends on viminfo keeping
+" marks.
+function! ResCur()
+  if line("'\"") <= line("$")
+    normal! g`"
+    return 1
+  endif
+endfunction
+
+augroup resCur
+  autocmd!
+  autocmd BufWinEnter * call ResCur()
+augroup END
+
 " Check if a file changed behind are back
 autocmd BufWinEnter * checktime
 autocmd FocusGained * checktime
