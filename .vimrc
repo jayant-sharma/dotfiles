@@ -296,6 +296,17 @@ autocmd BufWinEnter * checktime
 autocmd FocusGained * checktime
 autocmd CursorHold  * checktime
 
+" Setup for ctrlp plugin
+let g:ctrlp_follow_symlinks = 1
+let g:ctrlp_max_files = 2000
+let g:ctrlp_max_depth = 15
+let g:ctrlp_use_caching = 20
+let g:ctrlp_show_hidden = 1
+let g:ctrlp_custom_ignore = {
+  \ 'dir':  '\v[\/]\.(git|svn)$',
+  \ 'file': '\v\.(exe|so|dll|a)$',
+  \ }
+
 " Syntax on
 syntax on
 
