@@ -269,7 +269,7 @@ if has('mouse')
     " doesn't work -- 'set ttymouse?' returns xterm2 but the mouse
     " makes tmux enter copy mode instead of selecting or scrolling
     " inside Vim -- but luckily, setting it up from within autocmds
-    " works                   
+    " works
     autocmd VimEnter * set ttymouse=xterm2
     autocmd FocusGained * set ttymouse=xterm2
     autocmd BufEnter * set ttymouse=xterm2
@@ -291,7 +291,7 @@ augroup resCur
   autocmd BufWinEnter * call ResCur()
 augroup END
 
-" Check if a file changed behind are back
+" Check if a file changed behind our back
 autocmd BufWinEnter * checktime
 autocmd FocusGained * checktime
 autocmd CursorHold  * checktime
