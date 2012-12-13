@@ -306,6 +306,13 @@ let g:ctrlp_custom_ignore = {
   \ 'dir':  '\v[\/]\.(git|svn)$',
   \ 'file': '\v\.(exe|so|dll|a)$',
   \ }
+let g:ctrlp_user_command = {
+  \ 'types': {
+    \ 1: ['.git', 'cd %s && git ls-files'],
+    \ 2: ['.hg', 'hg --cwd %s locate -I .'],
+    \ 3: ['.svn', 'cd %s && svn ls -R'],
+    \ },
+  \ }
 
 " Syntax on
 syntax on
