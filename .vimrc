@@ -314,6 +314,22 @@ let g:ctrlp_user_command = {
     \ },
   \ }
 
+" Highlight lines that are overlength
+function ToggleOverLengthHi()
+    if exists("b:overlengthhi") && b:overlengthhi
+        highlight clear OverLength
+        let b:overlengthhi = 0
+        "echo "overlength highlight off"
+    else
+        " adjust colors/styles as desired
+        highlight OverLength ctermbg=darkred ctermfg=white guibg=#FFD9D9
+        match OverLength /\%>80v.\+/
+        let b:overlengthhi = 1
+        "echo "overlength highlight on"
+    endif
+endfunction
+map <silent> <F3> <Esc>:call ToggleOverLengthHi()<CR>
+
 " Syntax on
 syntax on
 
