@@ -154,6 +154,9 @@ def runmenu(stdscr, chooser):
   stdscr.timeout(100)
   stdscr.keypad(True)
   stdscr.leaveok(1)
+  prev_sessions = {}
+  for server in chooser.servers:
+    prev_sessions[server] = {}
 
   # Loop until we can return something
   while True:
@@ -180,6 +183,10 @@ def runmenu(stdscr, chooser):
     stdscr.refresh()
     # Create a window per server
     for server in chooser.servers:
+      sessions = chooser.get_sessions_for(server)
+      if len(prev_sessions[server].keys()) > len(sessions.keys()): # sessions got killed
+        # redraw entire list so that old sessions do not stay on screen
+        windows[server].clear()
       windows[server].border()
       if windows[server]==currentWin:
         windows[server].addnstr(0,1,server,width-2,curses.A_REVERSE) # Title for this menu
@@ -187,7 +194,6 @@ def runmenu(stdscr, chooser):
         windows[server].addnstr(0,1,server,width-2,curses.A_BOLD) # Title for this menu
       offset += width
       windows[server].refresh()
-      sessions = chooser.get_sessions_for(server)
       i = 0
       for sess in sorted(sessions.keys()):
         if windows[server]==currentWin and pos[1] == i:
@@ -199,6 +205,7 @@ def runmenu(stdscr, chooser):
           windows[server].addnstr(2+i,2, "%s (%s)" %(sessions[sess].sessName, sessions[sess].status), width-4, style)
         i=+1
       windows[server].refresh()
+      prev_sessions[server] = sessions
 
     # Poll for key
     x = currentWin.getch()
