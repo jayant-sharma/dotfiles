@@ -235,6 +235,8 @@ cmap <C-V>127 <C-H>
 imap <Esc>[3~ <C-H>
 imap        <C-H>
 
+" Shortcut key to build the make file
+map <F9> :make<CR>
 
 " ===================================================================
 " AutoCommands
