@@ -7,7 +7,7 @@
 #   "Feel free to do whatever you like with it."
 
 # We want pretty colors
-#set -g default-terminal "screen-256color"
+set -g default-terminal "screen-256color"
 
 # When a smaller terminal connects to a tmux client, it shrinks to fit it.
 # The clients attached with bigger displays see this constrained view.
