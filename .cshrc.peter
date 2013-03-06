@@ -28,6 +28,7 @@ alias vi vim
 # Set up the prompt
 set prompt='%{^[]0;%n@%m, %~, %P^G%}%{\033[37m%}[%n@%{\033[1;37m%}%m%{\033[2;37m%}:%~]%#%{\033[0m%} '
 alias cwdcmd 'if ($?TMUX) tmux setenv TMUXPWD_`tmux display -p "#D" | tr -d %` "$PWD" && tmux refresh-client -S'
+alias git 'git \!* && tmux refresh-client -S'
 
 # Less knows colors with -R
 setenv LESS -R
@@ -37,7 +38,7 @@ alias ll /bin/ls -F -lha --color=auto
 alias l /bin/ls -F -lh --color=auto
 
 # Some useful grep shortcuts
-set GREP_PIPE=" | xargs grep -Hn $*"
+set GREP_PIPE=" | xargs grep -Hn"
 alias cgrep   "find . -name '*.c' -o -name '*.cpp' -o -name '*.h' -o -name '*.hpp' -o -name '*.cxx' $GREP_PIPE"
 alias mkgrep  "find . -name 'Makefile*' -o -name '*.mk' $GREP_PIPE"
 alias plgrep  "find . -name '*.pl' -o -name '*.pm' $GREP_PIPE"
