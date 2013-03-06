@@ -28,7 +28,7 @@ alias vi vim
 # Set up the prompt
 set prompt='%{^[]0;%n@%m, %~, %P^G%}%{\033[37m%}[%n@%{\033[1;37m%}%m%{\033[2;37m%}:%~]%#%{\033[0m%} '
 alias cwdcmd 'if ($?TMUX) tmux setenv TMUXPWD_`tmux display -p "#D" | tr -d %` "$PWD" && tmux refresh-client -S'
-alias git 'git \!* && tmux refresh-client -S'
+#alias git 'git \!* && tmux refresh-client -S' # Seems to break git completion
 
 # Less knows colors with -R
 setenv LESS -R
