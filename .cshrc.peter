@@ -1,0 +1,77 @@
+# .cshrc.peter
+# My own favorite settings - the non work specific parts
+
+
+# We love PRETTY colors
+# Quite a bit of terminfo/termcap manipulation to get things working
+setenv TERMCAP $HOME/.termcap
+setenv TERMINFO $HOME/.terminfo
+setenv LANG en_US.utf8
+setenv LC_ALL en_US.utf8
+if ( $?TERM ) then
+  if ( $TERM == "xterm" ) then
+    setenv TERM xterm-256color
+  endif
+  if ( $TERM == "screen" ) then
+    setenv TERM screen-256color
+    stty erase 
+  endif
+  if ( $TERM == "screen-256color" ) then
+    stty erase 
+  endif
+endif
+
+# Default editor
+setenv EDITOR vim
+alias vi vim
+
+# Set up the prompt
+set prompt='%{^[]0;%n@%m, %~, %P^G%}%{\033[37m%}[%n@%{\033[1;37m%}%m%{\033[2;37m%}:%~]%#%{\033[0m%} '
+alias cwdcmd 'if ($?TMUX) tmux setenv TMUXPWD_`tmux display -p "#D" | tr -d %` "$PWD" && tmux refresh-client -S'
+
+# Less knows colors with -R
+setenv LESS -R
+
+alias ls /bin/ls -F --color=auto
+alias ll /bin/ls -F -lha --color=auto
+alias l /bin/ls -F -lh --color=auto
+
+# Some useful grep shortcuts
+set GREP_PIPE=" | xargs grep -Hn $*"
+alias cgrep   "find . -name '*.c' -o -name '*.cpp' -o -name '*.h' -o -name '*.hpp' -o -name '*.cxx' $GREP_PIPE"
+alias mkgrep  "find . -name 'Makefile*' -o -name '*.mk' $GREP_PIPE"
+alias plgrep  "find . -name '*.pl' -o -name '*.pm' $GREP_PIPE"
+alias pygrep  "find . -name '*.py' $GREP_PIPE"
+alias tclgrep "find . -name '*.tcl' $GREP_PIPE"
+alias vgrep   "find . -name '*.v' -o -name '*.sv' -o -name '*.svh' -o -name '*.vhd' -o -name '*.vhdl' $GREP_PIPE"
+
+# Disable system beeps in X
+if ($?DISPLAY) then
+#  xset -b
+else if ($?TERM) then
+  setterm -blength 0
+endif
+
+# This fixes a bug in tmux when redirecting to /dev/null
+# See http://sourceforge.net/tracker/?func=detail&aid=3489496&group_id=200378&atid=973262
+setenv EVENT_NOEPOLL 1
+
+# Set up tmuxifier
+if ( -f $HOME/.tmuxifier/init.tcsh ) then
+  source $HOME/.tmuxifier/init.tcsh
+endif
+
+# tmux environment update
+set AWK_CMD='{print "setenv "$1" \""$2"\""}'
+alias se "tmux showenv | grep -ve '^-' | awk -F'=' '$AWK_CMD' > ~/private/tmux.tmp && source ~/private/tmux.tmp && rm ~/private/tmux.tmp"
+alias st "setenv TERMINFO $HOME/.terminfo && setenv TERMCAP $HOME/.termcap"
+
+
+# Smart tab completion
+# (See /usr/share/doc/tcsh-6.14/complete.tcsh)
+# The big mother completion file (slightly modified from system default)
+source ~/.complete
+# All app-specific completion scripts (The ones I added myself)
+foreach f ($HOME/.*-completion.tcsh)
+  source $f
+end
