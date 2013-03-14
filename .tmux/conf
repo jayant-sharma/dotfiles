@@ -59,6 +59,8 @@ set -g display-panes-time 2000
 # start window indexing at one instead of zero
 set -g base-index 1
 
+# Keep the list of window numbers clean
+set-option -g renumber-windows on
 
 # wm window title string (uses statusbar variables)
 #set -g set-titles-string "tmux.#I.#W"
