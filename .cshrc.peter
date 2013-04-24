@@ -14,10 +14,10 @@ if ( $?TERM ) then
   endif
   if ( $TERM == "screen" ) then
     setenv TERM screen-256color
-    stty erase 
+    #stty erase 
   endif
   if ( $TERM == "screen-256color" ) then
-    stty erase 
+    #stty erase 
   endif
 endif
 
