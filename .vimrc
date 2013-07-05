@@ -220,6 +220,7 @@ let g:explDetailedHelp=0
 " When I let Vim write the current buffer I frequently mistype the
 " command ":w" as ":W" - so I have to remap it to correct this typo:
 nmap :W :w
+nmap :Wq :wq
 
 " Shortcut to reload vimrc
 nn  ,u :source <C-R>=vimrc<CR><CR>
