@@ -176,7 +176,7 @@ def runmenu(stdscr, chooser):
         windows[server].clear()
         windows[server].leaveok(1)
         offset += width
-        online_help = "q: quit - c: new session"
+        online_help = "q: quit - c: new session - k: kill session"
       stdscr.addstr(h-2, (w/2)-len(online_help)/2, online_help, curses.A_DIM)
     currentWin = windows[chooser.servers[pos[0]]]
     stdscr.border()
@@ -220,6 +220,15 @@ def runmenu(stdscr, chooser):
       return ("quit", None)
     elif x in [ord('c'), ord('C')]:
       return ("create", chooser.servers[pos[0]])
+    elif x in [ord('k'), ord('K')]:
+      i=0
+      sessions = chooser.get_sessions_for(chooser.servers[pos[0]])
+      for sess in sorted(sessions.keys()):
+        if i == pos[1]:
+          kill(sessions[sess])
+          break
+        i+=1
+      continue
     elif x in [ord('\n')]:
       i=0
       sessions = chooser.get_sessions_for(chooser.servers[pos[0]])
@@ -261,6 +270,10 @@ def runmenu(stdscr, chooser):
 def attach(session):
   print "Attaching to", session
   subprocess.call("ssh -qt %s tmux attach -t %s" % (session.host, session.sessName), shell=True)
+
+def kill(session):
+  print "Killing ", session
+  subprocess.call("ssh -qt %s tmux kill-session -t %s" % (session.host, session.sessName), shell=True)
 
 def create(server):
   print "Creating a new session on", server
