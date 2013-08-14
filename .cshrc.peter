@@ -59,11 +59,6 @@ endif
 # See http://sourceforge.net/tracker/?func=detail&aid=3489496&group_id=200378&atid=973262
 setenv EVENT_NOEPOLL 1
 
-# Set up tmuxifier
-if ( -f $HOME/.tmuxifier/init.tcsh ) then
-  source $HOME/.tmuxifier/init.tcsh
-endif
-
 # tmux environment update
 set AWK_CMD='{print "setenv "$1" \""$2"\""}'
 alias se "tmux showenv | grep -ve '^-' | awk -F'=' '$AWK_CMD' > ~/private/tmux.tmp && source ~/private/tmux.tmp && rm ~/private/tmux.tmp"
