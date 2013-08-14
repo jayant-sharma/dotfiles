@@ -1085,9 +1085,9 @@ n@public@'`[ -r /usr/man/manp ]&& \ls -1 /usr/man/manp | sed s%\\.p.\*\$%%`'@ \
             no-print-directory old-file= print-data-base \
             print-directory question quiet recon silent stop \
             touch version warn-undefined-variables what-if=)/' \
-            'n/-C/d/' \
+            'n/-C/d/' 'n/-f/f/' \
             'n@*@`list_make_targets`@' \
-            'n/=/f/' 'n/-f/f/'
+            'n/=/f/'
 #    complete make \
 #    'n/-f/f/' \
 #        'c/*=/f/' \
