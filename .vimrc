@@ -52,7 +52,7 @@ set esckeys
 
 " formatoptions:  Options for the "text format" command ("gq")
 " I need all those options (but 'o')!
-set formatoptions=cr
+set formatoptions=tcrqnl1j
 
 " helpheight: zero disables this.
 set helpheight=15
@@ -340,3 +340,40 @@ syntax on
 filetype on
 filetype plugin on
 filetype indent on
+
+" NeoComplete settings
+
+" Disable AutoComplPop.
+let g:acp_enableAtStartup = 0
+" Use neocomplete.
+let g:neocomplete#enable_at_startup = 1
+" Use smartcase.
+let g:neocomplete#enable_smart_case = 1
+let g:neocomplete#disable_auto_complete = 1
+let g:neocomplete#enable_auto_select = 1
+" Set minimum syntax keyword length.
+let g:neocomplete#sources#syntax#min_keyword_length = 4
+let g:neocomplete#lock_buffer_name_pattern = '\*ku\*'
+
+" Define dictionary.
+let g:neocomplete#sources#dictionary#dictionaries = {
+    \ 'default' : '',
+    \ 'vimshell' : $HOME.'/.vimshell_hist',
+    \ }
+
+" Define keyword.
+if !exists('g:neocomplete#keyword_patterns')
+    let g:neocomplete#keyword_patterns = {}
+endif
+let g:neocomplete#keyword_patterns['default'] = '\h\w*'
+
+" Plugin key-mappings.
+inoremap <expr><C-g>     neocomplete#undo_completion()
+inoremap <expr><C-l>     neocomplete#complete_common_string()
+
+" <C-Space>: completion.
+inoremap <expr> <C-N> pumvisible() ? "\<C-N>" : "\<C-X><C-U>"
+
+" Limit preview window size for omnicomplete
+set previewheight=8
+
