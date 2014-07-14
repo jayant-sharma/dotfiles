@@ -22,11 +22,13 @@ if ( $?TERM ) then
 endif
 
 # Default editor
-setenv EDITOR vim
+# Depending on the host, vim can be in different places, so we take full path
+# Sounds like a hack? probably is!
+setenv EDITOR `which vim`
 alias vi vim
 
 # Set up the prompt
-set prompt='%{^[]0;%n@%m, %~, %P^G%}%{\033[37m%}[%n@%{\033[1;37m%}%m%{\033[2;37m%}:%~]%#%{\033[0m%} '
+source ~/bin/prompt.csh
 if ( $?TMUX ) then
    alias cwdcmd 'tmux setenv TMUXPWD_`tmux display -p "#D" | tr -d %` "$PWD" && tmux refresh-client -S'
 endif

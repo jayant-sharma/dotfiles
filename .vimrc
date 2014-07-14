@@ -33,7 +33,7 @@ set noswapfile
 set backspace=indent,eol,start
 
 " background:  Are we using a "light" or "dark" background?
-set background=dark
+set background=light
 
 " compatible with good old vi limits us too much
 set nocompatible
@@ -254,7 +254,8 @@ map <F9> :make<CR>
 
 " Powerline plugin settings
 let g:Powerline_theme="default"
-let g:Powerline_colorscheme="skwp"
+" Light colorscheme to match the overall vim scheme
+let g:Powerline_colorscheme="solarized16_light"
 let g:Powerline_symbols = 'unicode'
 
 "NERDtree setup
@@ -376,4 +377,7 @@ inoremap <expr> <C-N> pumvisible() ? "\<C-N>" : "\<C-X><C-U>"
 
 " Limit preview window size for omnicomplete
 set previewheight=8
+
+" Settings for syntactic
+let g:syntastic_python_checkers = ['flake8']
 
