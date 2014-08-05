@@ -34,8 +34,9 @@ if ( $?TMUX ) then
 endif
 #alias git 'git \!* && tmux refresh-client -S' # Seems to break git completion
 
-# Less knows colors with -R
-setenv LESS -R
+# Less knows colors with -R, -F skips prompt if everything fits on one screen
+setenv LESS "-R -F"
+alias grep /bin/grep --color=auto
 
 alias ls /bin/ls -F --color=auto
 alias ll /bin/ls -F -lha --color=auto
