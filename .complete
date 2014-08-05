@@ -1020,11 +1020,12 @@ n@public@'`[ -r /usr/man/manp ]&& \ls -1 /usr/man/manp | sed s%\\.p.\*\$%%`'@ \
             c/-/"(b B C f F g G h i k K l L m M N o O p P R s S \
             T v V w W X z Z 0 1 2 3 4 5 6 7 -)"/ \
             C@/dev@f@ \
+            n/-c*f/f/ \
             n/-c*f/x:'<new_tar_file, device_file, or "-">'/ \
-            n/{-[Adrtux]j*f,--file}/f:*.{tar.bz2,tbz}/ \
-            n/{-[Adrtux]z*f,--file}/f:*.{tar.gz,tgz}/ \
-            n/{-[Adrtux]Z*f,--file}/f:*.{tar.Z,taz}/ \
-            n/{-[Adrtux]*f,--file}/f:*.tar/ \
+            n/{-[Adcrtux]j*f,--file}/f:*.{tar.bz2,tbz}/ \
+            n/{-[Adcrtux]z*f,--file}/f:*.{tar.gz,tgz}/ \
+            n/{-[Adcrtux]Z*f,--file}/f:*.{tar.Z,taz}/ \
+            n/{-[Adcrtux]*f,--file}/f:*.tar/ \
             N/{-xj*f,--file}/'`tar -tjf $:-1`'/ \
             N/{-xz*f,--file}/'`tar -tzf $:-1`'/ \
             N/{-xZ*f,--file}/'`tar -tZf $:-1`'/ \
