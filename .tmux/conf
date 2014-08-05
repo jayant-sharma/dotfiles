@@ -47,7 +47,7 @@ bind / command-prompt "split-window 'exec man %%'"
 bind '~' split-window "exec htop"
 
 # scrollback buffer n lines
-set -g history-limit 8000
+set -g history-limit 32000
 
 # listen for activity on all windows
 set -g bell-action any
