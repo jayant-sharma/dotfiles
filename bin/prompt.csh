@@ -11,5 +11,5 @@ set BWhite='%{\e[1;37m%}'
 
 set ColorOff='%{\033[0m%}'
 
-set prompt="%{^[]0;%n@%m, %~, %P^G%}${Blue}[%n@%m${Yellow}:%~]%#${ColorOff} "
+set prompt="%{^[]0;%n@%m, %~, %P^G%}${Blue}[%n@%m${Yellow} %~]%#${ColorOff} "
 
