@@ -38,21 +38,21 @@ syn keyword     libertyValue       test_scan_enable test_scan_enable_invertedtes
 syn keyword     libertyValue       test_scan_clock_b test_clock rising falling
 syn keyword     libertyValue       positive_unate negative_unate combinational combinational_rise combinational_fall
 syn keyword     libertyValue       three_state_disable three_state_disable_rise three_state_disable_fall three_state_enable
-syn keyword     libertyValue       three_state_enable_rise three_state_enable_fallrising_edge falling_edge preset clear
+syn keyword     libertyValue       three_state_enable_rise three_state_enable_fall rising_edge falling_edge preset clear
 syn keyword     libertyValue       hold_rising hold_falling setup_rising setup_falling recovery_rising recovery_falling
 syn keyword     libertyValue       skew_rising skew_falling removal_rising removal_falling min_pulse_width minimum_period
 syn keyword     libertyValue       max_clock_tree_path min_clock_tree_pathnon_seq_setup_rising non_seq_setup_falling
 syn keyword     libertyValue       non_seq_hold_rising non_seq_hold_falling nochange_high_high nochange_high_low
 syn keyword     libertyValue       nochange_low_high nochange_low_low  positive_unate negative_unate combinational
 syn keyword     libertyValue       combinational_rise combinational_fall three_state_disable three_state_disable_rise
-syn keyword     libertyValue       three_state_disable_fall three_state_enable three_state_enable_rise three_state_enable_fallrising_edge
+syn keyword     libertyValue       three_state_disable_fall three_state_enable three_state_enable_rise three_state_enable_fall rising_edge
 syn keyword     libertyValue       falling_edge preset clear hold_rising hold_falling setup_rising setup_falling recovery_rising
 syn keyword     libertyValue       recovery_falling skew_rising skew_falling removal_rising removal_falling min_pulse_width minimum_period
 syn keyword     libertyValue       max_clock_tree_path min_clock_tree_pathnon_seq_setup_rising non_seq_setup_falling non_seq_hold_rising
 syn keyword     libertyValue       non_seq_hold_falling nochange_high_high nochange_high_low nochange_low_high nochange_low_low
 syn keyword     libertyValue       positive_unate negative_unate combinational combinational_rise combinational_fall three_state_disable
 syn keyword     libertyValue       three_state_disable_rise three_state_disable_fall three_state_enable three_state_enable_rise
-syn keyword     libertyValue       three_state_enable_fallrising_edge falling_edge preset clear hold_rising hold_falling setup_rising
+syn keyword     libertyValue       three_state_enable_fall rising_edge falling_edge preset clear hold_rising hold_falling setup_rising
 syn keyword     libertyValue       setup_falling recovery_rising recovery_falling skew_rising skew_falling removal_rising removal_falling
 syn keyword     libertyValue       min_pulse_width minimum_period max_clock_tree_path min_clock_tree_pathnon_seq_setup_rising
 syn keyword     libertyValue       non_seq_setup_falling non_seq_hold_rising non_seq_hold_falling nochange_high_high nochange_high_low
@@ -77,7 +77,7 @@ syn keyword     libertySimpleAttr  slew_upper_threshold_pct_fall slew_upper_thre
 syn keyword     libertySimpleAttr  base_curves_group variable_1 variable_2 variable_3 default_operating_conditions
 syn keyword     libertySimpleAttr  default_wire_load_selection default_wire_load default_wire_load_mode
 syn keyword     libertySimpleAttr  in_place_swap_mode default_max_transition default_inout_pin_cap default_input_pin_cap
-syn keyword     libertySimpleAttr  default_output_pin_cap default_leakage_power_density default_fanout_load
+syn keyword     libertySimpleAttr  default_output_pin_cap default_leakage_power_density default_fanout_load default_max_fanout
 syn keyword     libertyComplexAttr capacitive_load_unit default_part define define_cell_area define_group
 syn keyword     libertyComplexAttr piece_define routing_layers technology voltage_map base_curve_type
 syn keyword     libertyComplexAttr curve_x curve_y index_1 index_2 index_3 pin_names vector library_features
@@ -149,7 +149,7 @@ syn keyword     libertyComplexAttr short
 syn keyword     libertyGroup       pin
 syn keyword     libertySimpleAttr  always_on antenna_diode_type antenna_diode_related_ground_pins antenna_diode_related_power_pins
 syn keyword     libertySimpleAttr  bit_width capacitance clock clock_gate_clock_pin clock_gate_enable_pin clock_gate_test_pin clock_gate_obs_pin
-syn keyword     libertySimpleAttr  clock_gate_out_pin clock_isolation_cell_clock_pin complementary_pin connection_class direction
+syn keyword     libertySimpleAttr  clock_gate_out_pin clock_isolation_cell_clock_pin complementary_pin connection_class direction bus_type
 syn keyword     libertySimpleAttr  dont_fault drive_current driver_type fall_capacitance fall_current_slope_after_threshold
 syn keyword     libertySimpleAttr  fall_current_slope_before_threshold fall_time_after_threshold fall_time_before_threshold fanout_load
 syn keyword     libertySimpleAttr  fault_model function has_builtin_pad hysteresis input_map input_signal_level input_voltage internal_node
