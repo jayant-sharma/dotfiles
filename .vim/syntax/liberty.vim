@@ -149,7 +149,7 @@ syn keyword     libertyComplexAttr short
 syn keyword     libertyGroup       pin
 syn keyword     libertySimpleAttr  always_on antenna_diode_type antenna_diode_related_ground_pins antenna_diode_related_power_pins
 syn keyword     libertySimpleAttr  bit_width capacitance clock clock_gate_clock_pin clock_gate_enable_pin clock_gate_test_pin clock_gate_obs_pin
-syn keyword     libertySimpleAttr  clock_gate_out_pin clock_isolation_cell_clock_pin complementary_pin connection_class direction bus_type
+syn keyword     libertySimpleAttr  clock_gate_out_pin clock_isolation_cell_clock_pin complementary_pin connection_class bus_type direction
 syn keyword     libertySimpleAttr  dont_fault drive_current driver_type fall_capacitance fall_current_slope_after_threshold
 syn keyword     libertySimpleAttr  fall_current_slope_before_threshold fall_time_after_threshold fall_time_before_threshold fanout_load
 syn keyword     libertySimpleAttr  fault_model function has_builtin_pad hysteresis input_map input_signal_level input_voltage internal_node
